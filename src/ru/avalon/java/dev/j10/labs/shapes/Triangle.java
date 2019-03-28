@@ -1,24 +1,45 @@
 package ru.avalon.java.dev.j10.labs.shapes;
 
-/**
- * Представление о треугольнике.
- * <p>
- * Треуго́льник (в евклидовом пространстве) — геометрическая
- * фигура, образованная тремя отрезками, которые соединяют
- * три точки, не лежащие на одной прямой. Указанные три
- * точки называются вершинами треугольника, а отрезки —
- * сторонами треугольника. Часть плоскости, ограниченная
- * сторонами, называется внутренностью треугольника: нередко
- * треугольник рассматривается вместе со своей внутренностью
- * (например, для определения понятия площади).
- *
- * @see <a href="https://ru.wikipedia.org/wiki/%D0%A2%D1%80%D0%B5%D1%83%D0%B3%D0%BE%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA">Треугольник</a>
- */
-public class Triangle {
-
-    /*
-     * TODO: Реализовать класс 'Triangle'
-     * 1. Используйте наследование.
-     * 2. Реализуйте все абстрактные методы.
-     */
+public class Triangle implements Point, Polygon, Shape{
+    private final float section1, section2, section3, point1, point2, 
+            point3; 
+    private final int rotation;
+    
+    public Triangle(){
+        section1 = (float) Math.random()*20; //стороны
+        section2 = (float) Math.random()*20; 
+        section3 = (float) Math.random()*20;
+        point1 = (float) Math.random()*20; //точки
+        point2 = (float) Math.random()*20;
+        point3 = (float) Math.random()*20;
+        rotation = (int) Math.random()*360; //ротация
+    }
+    
+    @Override
+    public float getX(){
+        return point1;
+    }
+    
+    @Override
+    public float getY(){
+        return point2;
+    }
+    
+    @Override
+    public float getPerimeter(){
+        return section1 + section2 + section3;
+    }
+    
+    @Override
+    public float getArea(){
+        float halfPerimeter = (section1+section2+section3)/2;
+        float area = (float) Math.sqrt(halfPerimeter*(halfPerimeter-section1)*
+                (halfPerimeter-section2)*(halfPerimeter-section3));
+        return area;
+    }
+    
+    @Override
+    public int getRotation(){
+        return rotation;
+    }
 }
