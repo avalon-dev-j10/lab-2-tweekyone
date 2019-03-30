@@ -9,7 +9,7 @@ package ru.avalon.java.dev.j10.labs.shapes;
  * @see <a href="https://ru.wikipedia.org/wiki/%D0%9E%D0%BA%D1%80%D1%83%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C">Окружность</a>
  */
 public class Circle implements Shape, Point, Ellipse{
-    float x, y, r; //точки и радиус
+    private float x, y, r; //точки и радиус
     
     public Circle(){
         x = (float) Math.random()*20;
